@@ -1,0 +1,412 @@
+:root {
+    --neo-blue: #0f172a;
+    --neo-accent: #3b82f6;
+    --neo-bg: #f8fafc;
+    --neo-surface: #ffffff;
+    --neo-text: #1e293b;
+    --neo-muted: #64748b;
+    --neo-border: rgba(0,0,0,0.08);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    background-color: var(--neo-bg);
+    color: var(--neo-text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: var(--transition);
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, .navbar-brand { 
+    font-family: 'Outfit', sans-serif; 
+    font-weight: 700; 
+}
+
+/* Logo */
+.infinity-logo {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.infinity-symbol {
+    color: var(--neo-accent);
+    margin-right: 6px;
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+/* Navigation */
+.neo-nav {
+    background: #0f172a;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 0.6rem 0;
+    z-index: 1050;
+}
+
+.nav-link {
+    color: #94a3b8 !important;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 10px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #fff !important;
+    background: rgba(59, 130, 246, 0.15);
+}
+
+.dropdown-menu {
+    background: var(--neo-surface);
+    border: 1px solid var(--neo-border);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    padding: 0.5rem;
+}
+
+.dropdown-item { 
+    color: var(--neo-text); 
+    font-weight: 500; 
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover { 
+    background: var(--neo-accent); 
+    color: white; 
+}
+
+/* Marquee */
+.marquee-container {
+    background: #020617;
+    color: #ffd700;
+    padding: 12px 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    overflow: hidden;
+    border-bottom: 3px solid var(--neo-accent);
+}
+
+.marquee-text { 
+    display: inline-block; 
+    white-space: nowrap; 
+    animation: marquee 35s linear infinite; 
+}
+
+@keyframes marquee { 
+    0% { transform: translateX(100%); } 
+    100% { transform: translateX(-100%); } 
+}
+
+/* Cards */
+.neo-card {
+    background: var(--neo-surface);
+    border: 1px solid var(--neo-border);
+    border-radius: 20px;
+    padding: 1.5rem;
+    transition: var(--transition);
+    height: 100%;
+}
+
+.neo-card:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06); 
+}
+
+/* Clock */
+.clock-box {
+    background: var(--neo-surface);
+    border: 1px solid var(--neo-border);
+    border-radius: 16px;
+    padding: 0.8rem 1.5rem;
+    text-align: right;
+    min-width: 240px;
+}
+
+/* Back to Top Button */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--neo-accent);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 999;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#backToTop:hover { 
+    transform: scale(1.1); 
+    background: #2563eb; 
+}
+
+/* Dashboard Navigation */
+.dash-nav {
+    background: var(--neo-surface);
+    padding: 10px;
+    border-radius: 50px;
+    display: inline-flex;
+    gap: 5px;
+    border: 1px solid var(--neo-border);
+    margin-bottom: 2rem;
+}
+
+.dash-nav a {
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--neo-muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.dash-nav a:hover { 
+    background: #f1f5f9; 
+    color: var(--neo-accent); 
+}
+
+/* Toast Notifications */
+.neo-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transform: translateX(120%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 4px solid var(--neo-accent);
+}
+
+.neo-toast.active { transform: translateX(0); }
+.neo-toast.error { border-left-color: #ef4444; }
+.neo-toast.success { border-left-color: #10b981; }
+
+/* Auth Screen */
+#auth-screen {
+    position: fixed;
+    inset: 0;
+    background: var(--neo-blue);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+}
+
+.auth-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+}
+
+/* Forms */
+.form-control {
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 1.25rem;
+}
+
+.btn-neo {
+    background: var(--neo-accent);
+    color: white;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 10px;
+    font-weight: 600;
+    border: none;
+    transition: all 0.2s;
+}
+
+.btn-neo:hover { 
+    background: #2563eb; 
+    transform: translateY(-1px); 
+}
+
+.hidden { display: none !important; }
+
+/* Executive Cards */
+.exec-card {
+    text-align: center;
+    padding: 2rem;
+    height: 100%;
+}
+
+.exec-img-container {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.exec-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exec-contact-info {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 1rem 0;
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 20px;
+    border: none;
+    overflow: hidden;
+}
+
+.modal-header {
+    background: var(--neo-blue);
+    color: white;
+    border: none;
+}
+
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.modal-exec-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* Badges */
+.badge-finance { background: #dcfce7; color: #166534; }
+.badge-tech { background: #dbeafe; color: #1e40af; }
+.badge-ops { background: #fef3c7; color: #92400e; }
+
+/* Feedback */
+.feedback-item {
+    border-left: 4px solid var(--neo-accent);
+    background: #fdfdfd;
+    transition: transform 0.2s;
+}
+
+.feedback-item:hover { transform: translateX(5px); }
+.rating-stars { color: #f59e0b; }
+
+/* Vendor Cards */
+.vendor-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.vendor-card-wrapper {
+    position: relative;
+}
+
+/* Footer */
+.neo-footer {
+    background: rgba(15, 23, 42, 0.95);
+    border-top: 1px solid var(--neo-border);
+    padding: 60px 0 30px 0;
+    margin-top: 100px;
+}
+
+.footer-heading {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-link {
+    display: block;
+    color: #94a3b8;
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.footer-link:hover {
+    color: var(--neo-accent);
+    padding-left: 5px;
+}
+
+.social-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    margin-right: 12px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-circle:hover {
+    background: var(--neo-accent);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.address-text {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid var(--neo-border);
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+/* Nav Pills (Supply Chain Tabs) */
+.nav-pills .nav-link {
+    color: var(--neo-muted);
+    border-radius: 10px;
+    padding: 0.6rem 1.2rem;
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--neo-accent);
+    color: white;
+}
